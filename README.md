@@ -3,6 +3,4 @@ Steering wheel angle prediction for autonomous driving using image processing an
 
 # Introduction
 
-# Data Pre processing
-
-# Test
+# Data Pre processin
