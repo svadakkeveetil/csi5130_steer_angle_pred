@@ -5,9 +5,9 @@ Steering wheel angle prediction for autonomous driving using image processing an
 
 # Running the video using ros
 
-- Step 1: roscore
-- Step 2 In a newtab: roslaunch ros_camera_playback mono_camera_cal.launch
-- Step 3 In a newtab: rosbag play <bagfilename> --clock
+- Step 1 (ros directory): roscore
+- Step 2 (ros directory) In a newtab: roslaunch ros_camera_playback mono_camera_cal.launch
+- Step 3 (ros bag directory) In a newtab: rosbag play <bagfilename> --clock
 
 
 
