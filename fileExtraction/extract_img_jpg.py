@@ -16,7 +16,7 @@ def image_callback(msg):
         cv_image = bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
         
         # Save the image as a .jpg file
-        file_name = '/home/svadakkeveetil/AI_Project_Data/HMB_1/' + str(int(rospy.get_time()*1e7)) + '.jpg'
+        file_name = '/home/svadakkeveetil/AI_Project_Data/HMB_1/' + str(int(rospy.get_time()*1e9)) + '.png'
         cv2.imwrite(file_name, cv_image)
         
         rospy.loginfo(f"Image saved as {file_name}")
