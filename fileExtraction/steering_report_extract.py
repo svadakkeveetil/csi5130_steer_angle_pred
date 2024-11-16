@@ -9,19 +9,22 @@ def extract_steering_angle(bag_file, topic_name, fname, t_start):
     # Open the bag file
     with rosbag.Bag(bag_file, 'r') as bag:
         # Iterate over the messages in the bag file for the specified topic
-        csvfile = open(fname+'.csv', 'w', newline='')
+        csvfile = open(fname+'_stering.csv', 'w', newline='')
+        csvfiler = open('HMB1.csv', 'r', newline='')
         writer = csv.writer(csvfile)
+        r_file = csv.reader(csvfiler)
+        r_data = list(r_file)
         writer.writerow(['time', 'steering_angle'])
-        count = 1
+        count = 0
         for topic, msg, t in bag.read_messages(topics=[topic_name]):
             t_temp = int((t.secs + t.nsecs/1e9)*1000)
             # Assuming the message is of type std_msgs/Float64
-            if t_temp > t_start and count<=4401:
+            if t_temp > t_start and count<=4400:
                 print(type(msg.steering_wheel_angle))
                 frame_id = msg.header.seq
                 steering_angle = msg.steering_wheel_angle
                 steering_angle_cmd = msg.steering_wheel_angle_cmd
-                writer.writerow([t, steering_angle])
+                writer.writerow([r_data[count][0], steering_angle])
                 rospy.loginfo(f"Frame_ids: {frame_id}, Timestamp: {t}, Steering Wheel Angle: {steering_angle}, steering_angle_cmd: {steering_angle_cmd}")
                 t_start+=50
                 count += 1
