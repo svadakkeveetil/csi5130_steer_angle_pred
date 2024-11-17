@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(dbw_mkz_msgs)
 
 find_package(catkin REQUIRED COMPONENTS
@@ -12,25 +12,32 @@ add_message_files(DIRECTORY msg FILES
   BrakeCmd.msg
   BrakeInfoReport.msg
   BrakeReport.msg
+  DriverAssistReport.msg
   FuelLevelReport.msg
   Gear.msg
   GearCmd.msg
+  GearNum.msg
+  GearReject.msg
   GearReport.msg
   HillStartAssist.msg
+  Ignition.msg
   Misc1Report.msg
+  MiscCmd.msg
+  OnePedal.msg
   ParkingBrake.msg
+  ParkingBrakeCmd.msg
+  QualityFactor.msg
   SteeringCmd.msg
   SteeringReport.msg
   SurroundReport.msg
-  SuspensionReport.msg
   ThrottleCmd.msg
   ThrottleInfoReport.msg
   ThrottleReport.msg
   TirePressureReport.msg
   TurnSignal.msg
-  TurnSignalCmd.msg
   TwistCmd.msg
   WatchdogCounter.msg
+  WheelPositionReport.msg
   WheelSpeedReport.msg
   Wiper.msg
 )
@@ -44,4 +51,13 @@ catkin_package(CATKIN_DEPENDS
   message_runtime
   std_msgs
   geometry_msgs
+  INCLUDE_DIRS include
+)
+
+install(DIRECTORY include/${PROJECT_NAME}/
+        DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+)
+install(DIRECTORY bmr
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+        FILES_MATCHING PATTERN "*.bmr"
 )
