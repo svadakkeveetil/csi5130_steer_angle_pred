@@ -12,7 +12,7 @@ def make_hsv_data(path):
     X = np.zeros((num_rows, row, col, 3), dtype=np.uint8)
     for i in range(num_rows):
         if i % 1000 == 0:
-            print "Processed " + str(i) + " images..."
+            print("Processed " + str(i) + " images...")
 
         path = df['fullpath'].iloc[i]
         img = load_img(data_path + path, target_size=(row, col))
@@ -31,7 +31,7 @@ def make_color_data(path):
     X = np.zeros((num_rows, row, col, 3), dtype=np.uint8)
     for i in range(num_rows):
         if i % 1000 == 0:
-            print "Processed " + str(i) + " images..."
+            print("Processed " + str(i) + " images...")
 
         path = df['fullpath'].iloc[i]
         img = load_img(data_path + path, target_size=(row, col))
@@ -49,7 +49,7 @@ def make_grayscale_diff_data(path, num_channels=2):
     X = np.zeros((num_rows - num_channels, row, col, num_channels), dtype=np.uint8)
     for i in range(num_channels, num_rows):
         if i % 1000 == 0:
-            print "Processed " + str(i) + " images..."
+            print("Processed " + str(i) + " images...")
         for j in range(num_channels):
             path0 = df['fullpath'].iloc[i - j - 1]
             path1 = df['fullpath'].iloc[i - j]
@@ -71,7 +71,7 @@ def make_grayscale_diff_tx_data(path, num_channels=2):
     X = np.zeros((num_rows - num_channels, row, col, num_channels), dtype=np.uint8)
     for i in range(num_channels, num_rows):
         if i % 1000 == 0:
-            print "Processed " + str(i) + " images..."
+            print("Processed " + str(i) + " images...")
         path1 = df['fullpath'].iloc[i]
         img1 = load_img(data_path + path1, grayscale=True, target_size=(row, col))
         img1 = img_to_array(img1)
@@ -94,7 +94,7 @@ def make_hsv_grayscale_diff_data(path, num_channels=2):
     X = np.zeros((num_rows - num_channels, row, col, num_channels), dtype=np.uint8)
     for i in range(num_channels, num_rows):
         if i % 1000 == 0:
-            print "Processed " + str(i) + " images..."
+            print("Processed " + str(i) + " images...")
         for j in range(num_channels):
             path0 = df['fullpath'].iloc[i - j - 1]
             path1 = df['fullpath'].iloc[i - j]
@@ -114,19 +114,19 @@ def make_hsv_grayscale_diff_data(path, num_channels=2):
 if __name__ == "__main__":
     config = DataConfig()
     data_path = config.data_path
-    row, col = config.height, config.width
+    row, col = config.img_height, config.img_width
 
-    print "Pre-processing phase 1 data..."
+    print("Pre-processing phase 2 data...")
+    for i in range(1, 6):
+        X_train, y_train = make_hsv_grayscale_diff_data("rambo/data/train_round2_part" + str(i) + ".txt", 4)
+        np.save("{}/X_train_round2_hsv_gray_diff_ch4_part{}".format(data_path, i), X_train)
+        np.save("{}/y_train_round2_hsv_gray_diff_ch4_part{}".format(data_path, i), y_train)
+
+"""     print "Pre-processing phase 1 data..."
     X_train, y_train = make_hsv_grayscale_diff_data("data/train_round1.txt", 4)
     np.save("{}/X_train_round1_hsv_gray_diff_ch4".format(data_path), X_train)
     np.save("{}/y_train_round1_hsv_gray_diff_ch4".format(data_path), y_train)
     
     X_val, y_val = make_hsv_grayscale_diff_data("data/val_round1.txt", 4)
     np.save("{}/X_train_round1_hsv_gray_diff_ch4".format(data_path), X_val)
-    np.save("{}/y_train_round1_hsv_gray_diff_ch4".format(data_path), y_val)
-        
-    print "Pre-processing phase 2 data..."
-    for i in range(1, 6):
-        X_train, y_train = make_hsv_grayscale_diff_data("data/train_round2_part" + str(i) + ".txt", 4)
-        np.save("{}/X_train_round2_hsv_gray_diff_ch4_part{}".format(data_path, i), X_train)
-        np.save("{}/y_train_round2_hsv_gray_diff_ch4_part{}".format(data_path, i), y_train)
+    np.save("{}/y_train_round1_hsv_gray_diff_ch4".format(data_path), y_val) """

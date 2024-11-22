@@ -55,4 +55,4 @@ if __name__ == "__main__":
     model = Model("checkpoints/final_model.hdf5", "data/X_train_mean.npy")
     
     for f in filenames:
-        print model.predict(f)
+        print(model.predict(f))
