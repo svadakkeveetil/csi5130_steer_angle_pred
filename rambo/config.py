@@ -17,6 +17,6 @@ class TestConfig(TrainConfig):
     angle_train_mean = -0.004179079
 
 class VisualizeConfig(object):
-    pred_path = "submissions/final.csv"
+    pred_path = "submissions/rambo.csv"
     true_path = "data/CH2_final_evaluation.csv"
     img_path = "phase2_test/center/*.jpg"
