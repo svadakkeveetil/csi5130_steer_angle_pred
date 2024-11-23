@@ -267,7 +267,7 @@ def create_nvidia_model3():
     model.add(Convolution2D(36, 5, 5, subsample=(2, 2), border_mode="same"))
     model.add(Activation('relu'))
     model.add(Convolution2D(48, 5, 5, subsample=(2, 2), border_mode="same"))
-    model.add(Activation('relu'))
+    model.add(Acticreate_comma_model_preluvation('relu'))
     model.add(Convolution2D(64, 3, 3, subsample=(2, 2), border_mode="same"))
     model.add(Activation('relu'))
     model.add(Convolution2D(64, 3, 3, subsample=(2, 2), border_mode="same"))
