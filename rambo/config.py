@@ -1,22 +1,22 @@
 class DataConfig(object):
-    data_path = "/storage/hpc_tanel/sdc"
-    data_name = "gray_diff2"
+    data_path = "/home/dhavan/AI_Project/Data/"
+    data_name = "hsv_gray_diff_ch4"
     img_height = 192
     img_width = 256
     num_channels = 4
     
 class TrainConfig(DataConfig):
     model_name = "comma_prelu"
-    batch_size = 32
-    num_epoch = 10
-    val_part = 33
-    X_train_mean_path = "data/X_train_gray_diff2_mean.npy"
+    batch_size = 4
+    epochs = 10
+    val_part = 6
+    X_train_mean_path = "/home/dhavan/AI_Project/Data/X_train_gray_diff2_mean.npy"
     
 class TestConfig(TrainConfig):
-    model_path = "checkpoints/final_model.hdf5"
+    model_path = "/home/dhavan/AI_Project/Data/final_model.hdf5"
     angle_train_mean = -0.004179079
 
 class VisualizeConfig(object):
-    pred_path = "submissions/rambo.csv"
-    true_path = "data/CH2_final_evaluation.csv"
+    pred_path = "submissions/final.csv"
+    true_path = "/home/dhavan/AI_Project/Data/CH2_final_evaluation.csv"
     img_path = "phase2_test/center/*.jpg"
