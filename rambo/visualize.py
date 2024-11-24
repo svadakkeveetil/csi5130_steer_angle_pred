@@ -21,7 +21,7 @@ pygame.display.set_caption("Data viewer")
 screen = pygame.display.set_mode(size, pygame.DOUBLEBUF)
 myfont = pygame.font.SysFont("monospace", 15)
 
-for i in range(1000):
+for i in range(2000):
 #for i in range(len(filenames)):
     angle = preds["steering_angle"].iloc[i] # radians
     true_angle = true["steering_angle"].iloc[i] # radians
