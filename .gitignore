@@ -1,3 +1,4 @@
 *.jpg
 *.npy
 *.hdf5
+*.bag
