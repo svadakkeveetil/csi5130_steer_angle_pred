@@ -3,6 +3,13 @@ Steering wheel angle prediction for autonomous driving using image processing an
 
 # Introduction
 
+# Software requirements
+
+- Pandas
+- pygame
+- ros package
+- pip install tensorflow
+
 # Running the video using ros
 
 - Step 1 (ros directory): roscore
