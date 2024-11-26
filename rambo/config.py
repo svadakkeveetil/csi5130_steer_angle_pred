@@ -13,7 +13,7 @@ class TrainConfig(DataConfig):
     X_train_mean_path = "/home/dhavan/AI_Project/Data/X_train_gray_diff2_mean.npy"
     
 class TestConfig(TrainConfig):
-    model_path = "/home/dhavan/AI_Project/Data/final_model.hdf5"
+    model_path = "rambo/checkpoints/final_model.hdf5"
     angle_train_mean = -0.004179079
 
 class VisualizeConfig(object):
