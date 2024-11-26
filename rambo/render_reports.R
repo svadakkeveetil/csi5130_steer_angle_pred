@@ -8,6 +8,6 @@ render_report = function(submission_filename, img_path, output_filename){
 }
 
 
-render_report("submissions/rambo.csv",
+render_report("submissions/final_model.csv",
               "phase2_test/center/",
-              "final_automatic_report.html")
+              "final_automatic_report_prelu.html")
