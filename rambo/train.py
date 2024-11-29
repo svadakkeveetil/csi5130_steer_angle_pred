@@ -1,6 +1,6 @@
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Lambda, ELU, Activation
-from keras.layers import LeakyReLU, PReLU
+from keras.layers import LeakyReLU, PReLU, Reshape, LSTM
 from keras.layers import Conv2D
 from keras.layers import BatchNormalization
 from keras.preprocessing.image import load_img, img_to_array
@@ -312,6 +312,51 @@ def create_comma_model_large_dropout():
     return model
 
 
+def create_comma_model_prelu_lstm():
+    model = Sequential()
+    input_shape = (192, 256, 4)  # Input shape of the data
+    row, col, ch = input_shape
+
+    # Convolutional Layers with PReLU activations
+    model.add(Conv2D(16, (8, 8), strides=(4, 4), padding="same", input_shape=input_shape))
+    model.add(PReLU())
+    model.add(Conv2D(32, (5, 5), strides=(2, 2), padding="same"))
+    model.add(PReLU())
+    model.add(Conv2D(64, (5, 5), strides=(2, 2), padding="same"))
+    model.add(PReLU())
+
+    # Flatten the output of the convolutional layers
+    model.add(Flatten())
+
+    # Dynamically calculate timesteps and feature_size
+    input_size = row // (4 * 2 * 2) * col // (4 * 2 * 2) * 64  # Based on strides
+    timesteps = 96  # Choose a factor of input_size (adjust if needed)
+    feature_size = input_size // timesteps  # Ensure no remainder
+
+    # Reshape the flattened output into a 3D array suitable for LSTM
+    model.add(Reshape((timesteps, feature_size)))
+
+    # LSTM Layer
+    model.add(LSTM(128, return_sequences=False))
+
+    # Fully Connected Layers with PReLU activations
+    model.add(Dense(512))
+    model.add(PReLU())
+    model.add(Dense(1))  # Output layer for regression task
+
+    # Compile the model with Adam optimizer and MSE loss function
+    model.compile(optimizer="adam", loss="mse")
+
+    print('Model is created and compiled..')
+    model.summary()  # Print model summary for layer details
+
+    return model
+
+
+
+
+
+
 def my_train_generator():
     num_iters = int(X_train.shape[0] // batch_size)  # Ensure num_iters is an integer
     while 1:
@@ -457,6 +502,8 @@ if __name__ == "__main__":
         model = create_nvidia_model2()
     elif config.model_name == "nvidia3":
         model = create_nvidia_model3()
+    elif config.model_name == "comma_prelu_ltsm":
+        model = create_comma_model_prelu_lstm()
         
     print(model.summary())
 
