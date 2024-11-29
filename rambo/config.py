@@ -6,11 +6,11 @@ class DataConfig(object):
     num_channels = 4
     
 class TrainConfig(DataConfig):
-    model_name = "comma_bn"
+    model_name = "comma_large"
     batch_size = 8
     epochs = 10
     val_part = 4
-    X_train_mean_path = "rambo/data/X_train_gray_diff2_mean.npy"
+    X_train_mean_path = "/home/dhavan/AI_Project/Data/X_train_gray_diff2_mean.npy"
     
 class TestConfig(TrainConfig):
     model_path = "rambo/checkpoints/final_model.hdf5"
