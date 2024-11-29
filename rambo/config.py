@@ -17,6 +17,6 @@ class TestConfig(TrainConfig):
     image_path = "/home/svadakkeveetil/ros/src/csi5130_steer_angle_pred/rambo/"
 
 class VisualizeConfig(object):
-    pred_path = "submissions/final.csv"
+    pred_path = "submissions/rambo.csv"
     true_path = "/home/svadakkeveetil/ros/src/csi5130_steer_angle_pred/rambo/data/CH2_final_evaluation.csv"
     img_path = "phase2_test/center/*.jpg"

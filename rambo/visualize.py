@@ -25,8 +25,8 @@ myfont = pygame.font.SysFont("monospace", 15)
 
 # Set up the video writer using OpenCV
 fourcc = cv2.VideoWriter_fourcc(*'XVID')  # Codec
-video_filename = 'output_video.avi'
-fps = 60  # Frames per second
+video_filename = 'output_video_rambo.avi'
+fps = 20  # Frames per second
 
 video_writer = cv2.VideoWriter(video_filename, fourcc, fps, size)
 
