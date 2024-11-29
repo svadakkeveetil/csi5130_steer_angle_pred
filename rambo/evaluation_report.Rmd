@@ -3,7 +3,7 @@ title: "Evaluation report"
 output: html_document
 params:
   input_data: default.csv
-  img_path: /storage/round2/test/
+  img_path: /rambo/phase2_test/center/
 ---
 
 ```{r, echo=FALSE}
