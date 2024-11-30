@@ -10,13 +10,13 @@ class TrainConfig(DataConfig):
     batch_size = 8
     epochs = 10
     val_part = 6
-    X_train_mean_path = "rambo/data/X_train_gray_diff2_mean.npy"
+    X_train_mean_path = "model/data/X_train_gray_diff2_mean.npy"
     
 class TestConfig(TrainConfig):
-    model_path = "rambo/checkpoints/final_model.hdf5"
+    model_path = "model/checkpoints/final_model.hdf5"
     angle_train_mean = -0.004179079
 
 class VisualizeConfig(object):
-    pred_path = "rambo/submissions/final.csv"
-    true_path = "rambo/data/CH2_final_evaluation.csv"
+    pred_path = "model/submissions/final.csv"
+    true_path = "model/data/CH2_final_evaluation.csv"
     img_path = "phase2_test/center/*.jpg"
