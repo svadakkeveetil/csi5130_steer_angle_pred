@@ -118,7 +118,7 @@ if __name__ == "__main__":
 
     print("Pre-processing phase 2 data...")
     for i in range(1, 6):
-        X_train, y_train = make_hsv_grayscale_diff_data("rambo/data/train_round2_part" + str(i) + ".txt", 4)
+        X_train, y_train = make_hsv_grayscale_diff_data("model/data/train_round2_part" + str(i) + ".txt", 4)
         np.save("{}/X_train_round2_hsv_gray_diff_ch4_part{}".format(data_path, i), X_train)
         np.save("{}/y_train_round2_hsv_gray_diff_ch4_part{}".format(data_path, i), y_train)
 

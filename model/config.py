@@ -6,17 +6,17 @@ class DataConfig(object):
     num_channels = 4
     
 class TrainConfig(DataConfig):
-    model_name = "comma_large"
+    model_name = "comma_large_dropout"
     batch_size = 8
     epochs = 10
-    val_part = 4
-    X_train_mean_path = "/home/dhavan/AI_Project/Data/X_train_gray_diff2_mean.npy"
+    val_part = 6
+    X_train_mean_path = "model/data/X_train_gray_diff2_mean.npy"
     
 class TestConfig(TrainConfig):
-    model_path = "rambo/checkpoints/final_model.hdf5"
+    model_path = "model/checkpoints/final_model.hdf5"
     angle_train_mean = -0.004179079
 
 class VisualizeConfig(object):
-    pred_path = "submissions/final.csv"
-    true_path = "/home/dhavan/AI_Project/Data/CH2_final_evaluation.csv"
+    pred_path = "model/submissions/final.csv"
+    true_path = "model/data/CH2_final_evaluation.csv"
     img_path = "phase2_test/center/*.jpg"
