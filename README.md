@@ -50,6 +50,6 @@ round2/train/center/1479426202229245710.jpg
 .
 round2/train/center/1479426572343447996.jpg
 
-# Preprocess and train the models
+# Preprocess, train the models and visualizing the results
 Follow the instructions in the README file in "model"
 
