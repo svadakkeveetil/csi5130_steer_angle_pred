@@ -1,7 +1,6 @@
 # csi5130_steer_angle_pred
 Steering wheel angle prediction for autonomous driving using image processing and neural networks
 
-# Introduction
 
 # Software requirements
 
@@ -25,7 +24,7 @@ Steering wheel angle prediction for autonomous driving using image processing an
 
 
 
-# Data Pre processing
+# Data for Pre processing
 HMB_1 - train_round2_part1.txt
 round2/train/center/1479424215880976321.jpg
 .
@@ -51,4 +50,6 @@ round2/train/center/1479426202229245710.jpg
 .
 round2/train/center/1479426572343447996.jpg
 
-# Evaluating Community Models
+# Preprocess and train the models
+Follow the instructions in the README file in "model"
+
