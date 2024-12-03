@@ -1,5 +1,5 @@
 class DataConfig(object):
-    data_path = "/home/svadakkeveetil/ros/src/csi5130_steer_angle_pred/model"
+    data_path = "/home/dhavan/AI_Project/Data/"
     data_name = "hsv_gray_diff_ch4"
     img_height = 192
     img_width = 256
